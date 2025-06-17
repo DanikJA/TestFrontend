@@ -1,12 +1,32 @@
-# React + Vite
+Звіт: Компонент табів з маршрутизацією
+ Функціонал
+Реалізовано горизонтальне меню вкладок (табів) із можливістю навігації між сторінками.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Використовується React Router (useNavigate, useLocation, Routes, Route) для зміни URL і визначення активного таба.
 
-Currently, two official plugins are available:
+Для кожного таба передбачено:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Іконка
 
-## Expanding the ESLint configuration
+Назва
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Шлях маршруту (path)
+
+Активний таб визначається порівнянням поточного location.pathname з tab.path.
+
+Реалізовано базову маршрутизацію (<Route>), усі таби мають element={null}, а також fallback для 404.
+
+💅 Стилізація (styled-components)
+Container, Header, TabList, TabItem, Icon — стилізовані компоненти для побудови UI.
+
+Таб активного маршруту виділяється (.active) кольором, бордером та тінню.
+
+Передбачено адаптивність: таби приховуються на ширині <768px.
+
+Додатково присутні компоненти для кнопки закріплення таба (PinButton) та меню переповнення (OverflowMenu, Dropdown), хоча в логіці компонента вони ще не використані.
+
+🧱 Компоненти/іконки
+Частина іконок — кастомні (CustomIcon*), частина — з бібліотеки react-icons/fi.
+
+Кожен об'єкт tab містить принаймні іконку, а більшість — також name та path.
+
