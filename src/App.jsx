@@ -1,5 +1,14 @@
 import { useState } from "react";
 import {
+  CustomIconAdministration,
+  CustomIconHelp,
+  CustomIconWaren,
+  CustomIconAswah,
+  CustomIconEin,
+  CustomIconRechn,
+} from "./components/DropdownTabs";
+
+import {
   Container,
   Header,
   TabList,
@@ -22,6 +31,7 @@ function App() {
   const [activeTab, setActiveTab] = useState("Dashboard");
 
   const tabs = [
+    { icon: <CustomIconAdministration /> },
     { name: "Dashboard", icon: <FiGrid /> },
     { name: "Banking", icon: <FiShoppingCart /> },
     { name: "Telefonie", icon: <FiPhone /> },
@@ -30,15 +40,15 @@ function App() {
     { name: "Statistik", icon: <FiBarChart2 /> },
     { name: "Post Office", icon: <FiMail /> },
     { name: "Administration", icon: <FiSettings /> },
-    { name: "Help", icon: <FiSettings /> },
-    { name: "Warenbestand", icon: <FiSettings /> },
-    { name: "Auswahllisten", icon: <FiSettings /> },
-    { name: "Einkauf", icon: <FiSettings /> },
-    { name: "Rechnungen", icon: <FiSettings /> },
+    { name: "Help", icon: <CustomIconHelp /> },
+    { name: "Warenbestand", icon: <CustomIconWaren /> },
+    { name: "Auswahllisten", icon: <CustomIconAswah /> },
+    { name: "Einkauf", icon: <CustomIconEin /> },
+    { name: "Rechnungen", icon: <CustomIconRechn /> },
   ];
 
-  const visibleTabs = tabs.slice(0, 9);
-  const overflowTabs = tabs.slice(9);
+  const visibleTabs = tabs.slice();
+  const overflowTabs = tabs.slice();
 
   return (
     <Container>
@@ -54,21 +64,6 @@ function App() {
               {tab.name}
             </TabItem>
           ))}
-          <OverflowMenu>
-            <OverflowButton>⋯</OverflowButton>
-            <div className="dropdown">
-              {overflowTabs.map((tab) => (
-                <div
-                  key={tab.name}
-                  className="dropdown-item"
-                  onClick={() => setActiveTab(tab.name)}
-                >
-                  <Icon>{tab.icon}</Icon>
-                  {tab.name}
-                </div>
-              ))}
-            </div>
-          </OverflowMenu>
         </TabList>
       </Header>
     </Container>

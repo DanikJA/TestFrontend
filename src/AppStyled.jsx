@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
 `;
 
 export const Header = styled.header`
@@ -16,8 +17,7 @@ export const Header = styled.header`
 
 export const TabList = styled.div`
   display: flex;
-  align-items: center;
-  gap: 4px;
+  width: 1675px;
   height: 48px;
 `;
 
