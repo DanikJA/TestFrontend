@@ -1,35 +1,78 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import {
+  Container,
+  Header,
+  TabList,
+  TabItem,
+  Icon,
+  OverflowMenu,
+  OverflowButton,
+} from "./AppStyled";
+
+import {
+  FiGrid,
+  FiPhone,
+  FiMail,
+  FiBarChart2,
+  FiSettings,
+  FiShoppingCart,
+} from "react-icons/fi";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeTab, setActiveTab] = useState("Dashboard");
+
+  const tabs = [
+    { name: "Dashboard", icon: <FiGrid /> },
+    { name: "Banking", icon: <FiShoppingCart /> },
+    { name: "Telefonie", icon: <FiPhone /> },
+    { name: "Accounting", icon: <FiBarChart2 /> },
+    { name: "Verkauf", icon: <FiBarChart2 /> },
+    { name: "Statistik", icon: <FiBarChart2 /> },
+    { name: "Post Office", icon: <FiMail /> },
+    { name: "Administration", icon: <FiSettings /> },
+    { name: "Help", icon: <FiSettings /> },
+    { name: "Warenbestand", icon: <FiSettings /> },
+    { name: "Auswahllisten", icon: <FiSettings /> },
+    { name: "Einkauf", icon: <FiSettings /> },
+    { name: "Rechnungen", icon: <FiSettings /> },
+  ];
+
+  const visibleTabs = tabs.slice(0, 9);
+  const overflowTabs = tabs.slice(9);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Container>
+      <Header>
+        <TabList>
+          {visibleTabs.map((tab) => (
+            <TabItem
+              key={tab.name}
+              className={activeTab === tab.name ? "active" : ""}
+              onClick={() => setActiveTab(tab.name)}
+            >
+              <Icon>{tab.icon}</Icon>
+              {tab.name}
+            </TabItem>
+          ))}
+          <OverflowMenu>
+            <OverflowButton>⋯</OverflowButton>
+            <div className="dropdown">
+              {overflowTabs.map((tab) => (
+                <div
+                  key={tab.name}
+                  className="dropdown-item"
+                  onClick={() => setActiveTab(tab.name)}
+                >
+                  <Icon>{tab.icon}</Icon>
+                  {tab.name}
+                </div>
+              ))}
+            </div>
+          </OverflowMenu>
+        </TabList>
+      </Header>
+    </Container>
+  );
 }
 
-export default App
+export default App;
