@@ -36,10 +36,6 @@ export const TabList = styled.div`
   display: flex;
   width: 1675px;
   height: 48px;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
 `;
 
 export const TabItem = styled.div`
