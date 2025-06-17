@@ -6,7 +6,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
-  background-color: #f9fafa;
+  background-color: #fefefe;
   border-bottom: 1px solid #dcdfe4;
   padding: 0 16px;
   overflow-x: auto;
@@ -35,7 +35,7 @@ export const TabItem = styled.div`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: #e6ebf0;
+    background-color: #eff2f4;
   }
 
   &.active {
