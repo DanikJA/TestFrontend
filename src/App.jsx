@@ -6,6 +6,9 @@ import {
   CustomIconAswah,
   CustomIconEin,
   CustomIconRechn,
+  CustomIconAk,
+  Verk,
+  Statistic,
 } from "./components/DropdownTabs";
 
 import {
@@ -35,9 +38,9 @@ function App() {
     { name: "Dashboard", icon: <FiGrid /> },
     { name: "Banking", icon: <FiShoppingCart /> },
     { name: "Telefonie", icon: <FiPhone /> },
-    { name: "Accounting", icon: <FiBarChart2 /> },
-    { name: "Verkauf", icon: <FiBarChart2 /> },
-    { name: "Statistik", icon: <FiBarChart2 /> },
+    { name: "Accounting", icon: <CustomIconAk /> },
+    { name: "Verkauf", icon: <Verk /> },
+    { name: "Statistik", icon: <Statistic /> },
     { name: "Post Office", icon: <FiMail /> },
     { name: "Administration", icon: <FiSettings /> },
     { name: "Help", icon: <CustomIconHelp /> },
