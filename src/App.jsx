@@ -22,6 +22,7 @@ import {
 } from "react-icons/fi";
 
 const tabs = [
+  { icon: <CustomIconAdministration /> },
   { name: "Dashboard", icon: <FiGrid />, path: "/dashboard" },
   { name: "Banking", icon: <FiShoppingCart />, path: "/banking" },
   { name: "Telefonie", icon: <FiPhone />, path: "/telefonie" },
