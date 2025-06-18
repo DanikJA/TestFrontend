@@ -5,36 +5,22 @@ export const Container = styled.div`
   min-height: 100vh;
 `;
 
+export const Logo = styled.div`
+  display: grid;
+  place-items: center;
+`;
+
 export const Header = styled.header`
   background-color: #fefefe;
-  border-bottom: 1px solid #dcdfe4;
+  border-bottom: 2px solid #dcdfe4;
   padding: 0 16px;
-  overflow-x: auto;
   position: sticky;
   top: 0;
   z-index: 10;
 `;
-export const PinButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0 4px;
-  display: flex;
-  align-items: center;
-  color: #999;
-
-  &:hover {
-    color: #333;
-  }
-
-  &.pinned {
-    color: #f39c12;
-  }
-`;
 
 export const TabList = styled.div`
   display: flex;
-  width: 1675px;
   height: 48px;
 `;
 
