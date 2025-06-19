@@ -75,15 +75,11 @@ const tabs = [
 }));
 
 function App() {
-  const [tabList, setTabList] = useState(tabs);
-  const [currentTab, setCurrentTab] = useState(null);
-
-  useEffect(() => {
+  const [tabList, setTabList] = useState(() => {
     const storedTabs = localStorage.getItem("tabs");
-    if (storedTabs) {
-      setTabList(JSON.parse(storedTabs));
-    }
-  }, []);
+    return storedTabs ? JSON.parse(storedTabs) : tabs;
+  });
+  const [currentTab, setCurrentTab] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("tabs", JSON.stringify(tabList));
