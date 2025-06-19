@@ -52,22 +52,25 @@ const tabs = [
     path: "/rechnungen",
     order: 12,
   },
-].map((tab) => ({ ...tab, id: nanoid() }));
+].map((tab) => ({
+  ...tab,
+  id: tab.name,
+}));
 
 function App() {
   const [tabList, setTabList] = useState(tabs);
   const [currentTab, setCurrentTab] = useState(null);
 
-  // useEffect(() => {
-  //   const storedTabs = localStorage.getItem("tabs");
-  //   if (storedTabs) {
-  //     setTabList(JSON.parse(storedTabs));
-  //   }
-  // }, []);
+  useEffect(() => {
+    const storedTabs = localStorage.getItem("tabs");
+    if (storedTabs) {
+      setTabList(JSON.parse(storedTabs));
+    }
+  }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem("tabs", JSON.stringify(tabList));
-  // }, [tabList]);
+  useEffect(() => {
+    localStorage.setItem("tabs", JSON.stringify(tabList));
+  }, [tabList]);
 
   const navigate = useNavigate();
   const location = useLocation();

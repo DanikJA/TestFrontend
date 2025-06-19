@@ -50,7 +50,7 @@ export const TabItem = styled.div`
   }
 `;
 
-export const Icon = styled.span`
+export const Icon = styled.div`
   display: flex;
   font-size: 16px;
 `;
