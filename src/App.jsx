@@ -1,6 +1,6 @@
 import { useLocation, useNavigate, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { nanoid } from "nanoid";
+
 import {
   CustomIconAdministration,
   CustomIconHelp,
@@ -23,32 +23,49 @@ import {
   FiShoppingCart,
 } from "react-icons/fi";
 
+const iconMap = {
+  FiGrid: <FiGrid />,
+  FiShoppingCart: <FiShoppingCart />,
+  FiPhone: <FiPhone />,
+  FiMail: <FiMail />,
+  FiSettings: <FiSettings />,
+  CustomIconAk: <CustomIconAk />,
+  Verk: <Verk />,
+  Statistic: <Statistic />,
+  CustomIconHelp: <CustomIconHelp />,
+  CustomIconWaren: <CustomIconWaren />,
+  CustomIconAswah: <CustomIconAswah />,
+  CustomIconEin: <CustomIconEin />,
+  CustomIconRechn: <CustomIconRechn />,
+  CustomIconAdministration: <CustomIconAdministration />,
+};
+
 const tabs = [
-  { name: "Dashboard", icon: <FiGrid />, path: "/dashboard", order: 0 },
-  { name: "Banking", icon: <FiShoppingCart />, path: "/banking", order: 1 },
-  { name: "Telefonie", icon: <FiPhone />, path: "/telefonie", order: 2 },
-  { name: "Accounting", icon: <CustomIconAk />, path: "/accounting", order: 3 },
-  { name: "Verkauf", icon: <Verk />, path: "/verkauf", order: 4 },
-  { name: "Statistik", icon: <Statistic />, path: "/statistik", order: 5 },
-  { name: "Post Office", icon: <FiMail />, path: "/post", order: 6 },
-  { name: "Administration", icon: <FiSettings />, path: "/admin", order: 7 },
-  { name: "Help", icon: <CustomIconHelp />, path: "/help", order: 8 },
+  { name: "Dashboard", icon: "FiGrid", path: "/dashboard", order: 0 },
+  { name: "Banking", icon: "FiShoppingCart", path: "/banking", order: 1 },
+  { name: "Telefonie", icon: "FiPhone", path: "/telefonie", order: 2 },
+  { name: "Accounting", icon: "CustomIconAk", path: "/accounting", order: 3 },
+  { name: "Verkauf", icon: "Verk", path: "/verkauf", order: 4 },
+  { name: "Statistik", icon: "Statistic", path: "/statistik", order: 5 },
+  { name: "Post Office", icon: "FiMail", path: "/post", order: 6 },
+  { name: "Administration", icon: "FiSettings", path: "/admin", order: 7 },
+  { name: "Help", icon: "CustomIconHelp", path: "/help", order: 8 },
   {
     name: "Warenbestand",
-    icon: <CustomIconWaren />,
+    icon: "CustomIconWaren",
     path: "/warenbestand",
     order: 9,
   },
   {
     name: "Auswahllisten",
-    icon: <CustomIconAswah />,
+    icon: "CustomIconAswah",
     path: "/auswahllisten",
     order: 10,
   },
-  { name: "Einkauf", icon: <CustomIconEin />, path: "/einkauf", order: 11 },
+  { name: "Einkauf", icon: "CustomIconEin", path: "/einkauf", order: 11 },
   {
     name: "Rechnungen",
-    icon: <CustomIconRechn />,
+    icon: "CustomIconRechn",
     path: "/rechnungen",
     order: 12,
   },
@@ -126,7 +143,7 @@ function App() {
               onDragOver={(event) => dragOverHandler(event, tab)}
               onDrop={(event) => dropHandler(event, tab)}
             >
-              <Icon>{tab.icon}</Icon>
+              <Icon>{iconMap[tab.icon]}</Icon>
               {tab.name}
             </TabItem>
           ))}
