@@ -92,11 +92,12 @@ function App() {
   function dragStartHandler(event, tab) {
     setCurrentTab(tab);
   }
-  function dragLeaveHandler(event) {}
-  function dragEndHandler(event) {}
+  // function dragLeaveHandler(event) {}
+  // function dragEndHandler(event) {}
   function dragOverHandler(event) {
     event.preventDefault();
   }
+
   function dropHandler(event, tab) {
     event.preventDefault();
     setTabList(
@@ -134,8 +135,8 @@ function App() {
               onClick={() => navigate(tab.path)}
               draggable={true}
               onDragStart={(event) => dragStartHandler(event, tab)}
-              onDragLeave={(event) => dragLeaveHandler(event, tab)}
-              onDragEnd={(event) => dragEndHandler(event, tab)}
+              // onDragLeave={(event) => dragLeaveHandler(event, tab)}
+              // onDragEnd={(event) => dragEndHandler(event, tab)}
               onDragOver={(event) => dragOverHandler(event, tab)}
               onDrop={(event) => dropHandler(event, tab)}
             >
@@ -145,6 +146,7 @@ function App() {
           ))}
         </TabList>
       </Header>
+
       <Routes>
         {tabList.map((tab) => (
           <Route key={tab.name} path={tab.path} element={null}></Route>
