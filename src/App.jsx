@@ -13,7 +13,15 @@ import {
   Statistic,
 } from "./components/Icons";
 
-import { Container, Header, TabList, TabItem, Icon, Logo } from "./AppStyled";
+import {
+  Container,
+  Header,
+  TabList,
+  TabItem,
+  Icon,
+  Logo,
+  PinButton,
+} from "./AppStyled";
 
 import {
   FiGrid,
@@ -72,6 +80,7 @@ const tabs = [
 ].map((tab) => ({
   ...tab,
   id: tab.name,
+  pinned: false,
 }));
 
 function App() {
@@ -114,12 +123,16 @@ function App() {
   }
 
   const sortTabs = (a, b) => {
-    if (a.order > b.order) {
-      return 1;
-    } else {
-      return -1;
-    }
+    if (a.pinned && !b.pinned) return -1;
+    if (!a.pinned && b.pinned) return 1;
+    return a.order - b.order;
   };
+
+  function togglePin(id) {
+    setTabList((prev) =>
+      prev.map((tab) => (tab.id === id ? { ...tab, pinned: !tab.pinned } : tab))
+    );
+  }
 
   return (
     <Container>
@@ -142,6 +155,14 @@ function App() {
             >
               <Icon>{iconMap[tab.icon]}</Icon>
               {tab.name}
+              <PinButton
+                onClick={(e) => {
+                  e.stopPropagation();
+                  togglePin(tab.id);
+                }}
+              >
+                {tab.pinned ? "📌" : "📍"}
+              </PinButton>
             </TabItem>
           ))}
         </TabList>

@@ -5,6 +5,28 @@ export const Container = styled.div`
   min-height: 100vh;
 `;
 
+export const PinButton = styled.button`
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 7px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #444;
+  display: flex;
+  align-items: center;
+
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: #317efb;
+  }
+`;
+
 export const Logo = styled.div`
   display: grid;
   place-items: center;
